@@ -1,0 +1,77 @@
+{
+  "name": "gdm",
+  "version": "0.1.0",
+  "description": "Personal download manager",
+  "main": "main/main.cjs",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "start": "vite build && electron .",
+    "test": "vitest run",
+    "e2e": "vite build && playwright test",
+    "dist": "vite build && electron-builder --win nsis",
+    "update:make": "node scripts/make-update.mjs",
+    "release": "node scripts/publish-release.mjs"
+  },
+  "build": {
+    "appId": "local.gdm",
+    "productName": "Genius Download Manager",
+    "files": [
+      "main/**",
+      "dist/**",
+      "assets/icon.png",
+      "assets/tray.png",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": "nsis",
+      "signAndEditExecutable": true
+    },
+    "directories": {
+      "output": "release"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "installerSidebar": "assets/sidebar.bmp",
+      "uninstallerSidebar": "assets/sidebar.bmp",
+      "installerHeader": "assets/header.bmp",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Genius Download Manager",
+      "uninstallDisplayName": "Genius Download Manager",
+      "runAfterFinish": true
+    },
+    "extraResources": [
+      {
+        "from": "extension",
+        "to": "extension"
+      }
+    ],
+    "electronLanguages": [
+      "en-US"
+    ],
+    "compression": "maximum"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.468.0"
+  },
+  "gdmUpdateUrl": "https://raw.githubusercontent.com/abo7la24/gdm-releases/main/latest.json"
+}

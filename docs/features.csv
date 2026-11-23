@@ -1,0 +1,51 @@
+feature,area,priority,original,clone,notes
+Add download by URL,core,must,yes,yes,S02
+Multi-connection segmented download,core,must,yes,yes,"tested: 4 conns, hash matches; 8 conns on 60 MB"
+Pause and resume,core,must,yes,yes,tested incl. restart
+Progress/speed/ETA display,core,must,yes,yes,S01/S03
+Download list with sort and filter,core,must,yes,yes,S01
+Open file / open folder / delete,core,must,yes,yes,"tested e2e with the OS calls recorded, not a real Explorer window"
+Retry failed download,core,must,yes,yes,Start over in menu
+Download queue (parallel limit),core,should,yes,yes,
+Max connections setting,settings,must,yes,yes,
+Download dir and temp dir settings,settings,must,yes,yes,
+Global speed limit,settings,should,yes,yes,tested: 6 MB at 4 MB/s took over 1.1 s
+Clipboard URL detection,core,could,unknown,no,
+Drag and drop links,core,could,yes,no,
+Completed history,core,should,yes,yes,Done filter
+System tray,desktop,should,yes,partial,"built, not seen on screen"
+Notifications on complete/fail,desktop,should,unknown,partial,"built, in-app toasts seen"
+Start with Windows,desktop,could,unknown,no,
+Chrome/Edge extension capture,browser,must,yes,yes,"tested in real Chromium; Edge not run, same engine"
+Firefox extension capture,browser,could,yes,no,
+Cookies and referrer forwarding,browser,should,unknown,yes,tested: cookie reached the file server
+File type filter for capture,browser,should,unknown,yes,"bridge tested; skip list in Settings, Browser tab (UI field not e2e tested)"
+Video/audio grabbing popup,media,should,yes,partial,"page media detected and sent in real Chromium; popup buttons not clicked, direct files only"
+HLS/DASH stream download,media,could,unknown,no,
+Encrypted/DRM media,media,could,no,skip,original cannot either; legal
+Scheduler,core,could,unknown,skip,no evidence in original
+Categories folders,core,could,conflicting,no,sources disagree
+Mac version,platform,could,yes,skip,Windows only
+Original branding and assets,legal,could,yes,skip,never copied
+Pause capture for this site,browser,should,no,no,from reviews: YouTube/Reddit pop-ups (thin evidence)
+Minimum size for capture,browser,should,no,no,from reviews: tiny auto-downloads like compression-dictionary.dat
+Ask before taking over a download,browser,could,no,no,from reviews: wants control over what is captured
+Plain privacy note (nothing leaves this PC),trust,could,no,no,from reviews: malware warning and no privacy policy (thin)
+One-click extension pairing (Allow prompt),browser,should,no,yes,tested: Allow pairs and capture works; Deny and web pages refused
+"Logo in installer, wizard, shortcuts, app exe, taskbar and tray",desktop,should,no,yes,icon.ico embedded in setup and app exe (checked); wizard images set; wizard not run
+"Own window when a link arrives (rename, folder, start, leave to browser, cancel)",browser,should,no,yes,tested e2e incl. packaged app
+Own corner notice when a download finishes or fails,desktop,should,no,yes,"open, show in folder, try again; tested e2e incl. packaged app; replaces the Windows notification"
+Plain-words error messages,core,should,no,yes,unit tested
+Add-on shipped with the installer and kept in a stable folder,browser,must,no,yes,resources/extension in the installer; copied to the app data folder on every start; tested on the built app
+"Guided ""Add to browser"" dialog (detect browsers, open extensions page, copy folder, live status)",browser,must,no,yes,tested e2e; reminder shows until the add-on connects
+"Light on memory: no GPU process, window freed when closed to the tray",desktop,should,no,yes,measured: 287 to 105 MB with the window closed
+"A progress window per browser download (details, status, speed, time left, progress bar, Pause, Resume, Cancel, Hide)",desktop,must,no,yes,"main window no longer opens; tested incl. smoothness (5 updates a second, speed steady); setting to turn it off"
+"Dark theme with the choice System, Light or Dark",desktop,should,no,yes,"every window follows at once, remembered after restart; contrast and accessibility checked in both"
+Firefox in the Add to browser dialog,browser,should,no,partial,"own tab, Firefox add-on file generated (manifest v2), opens about:debugging; NOT tested in a real Firefox (none on this PC); temporary until signed by Mozilla"
+"Add-on is accepted automatically (no Allow prompt, no Connect click), renews a stale token, connects when the app starts after the browser",browser,must,no,yes,fixed add-on id from a key in the manifest; unknown add-ons still get the question; tested in real Chromium incl. app started later
+"Three languages: English, Arabic (right to left) and French, chosen in Settings or following Windows",desktop,must,no,yes,"every window, tray menu and the add-on popup; coverage test fails if a text is untranslated; accessibility checked in French and Arabic"
+The icon of the kind of file in the download windows instead of the program logo,desktop,should,no,yes,the icon Windows shows for that file type; follows a rename in the new-download window; tested in the built windows
+"Video and audio from web pages (list of every quality, or audio only as original file or MP3)",media,must,no,partial,built on yt-dlp and ffmpeg fetched on first use with checksum; fully tested with a stand-in for yt-dlp; NOT yet run against a real site
+"Add-on button to send the current page, and HLS/DASH streams listed in the add-on",media,should,no,partial,tested in real Chromium with the stand-in; real streams not tested
+"Automatic update of the program (check, fetch, verify checksum, install when closed or at once)",desktop,must,no,partial,built and tested end to end against a local server with a stand-in installer; needs a web address for latest.json (not set up); the real installer was not run silently
+"Automatic update of the download helpers (video helper weekly, conversion helper monthly, only when different from the published checksum)",media,should,no,partial,tested against a local server; not against the real GitHub releases

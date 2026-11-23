@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 340px; margin: 0; padding: 12px; font: 14px/20px system-ui, sans-serif; color: #14171c; }
+  h1 { font-size: 16px; margin: 0 0 8px; }
+  .row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+  input[type=text], input[type=number] { flex: 1; height: 28px; padding: 0 8px; border: 1px solid #868e98; border-radius: 6px; min-width: 0; }
+  button { height: 28px; padding: 0 10px; border: 1px solid #868e98; border-radius: 6px; background: #f6f7f9; cursor: pointer; }
+  button:focus-visible, input:focus-visible { outline: 2px solid #6b46c1; outline-offset: 2px; }
+  #state { margin: 0; color: #5b6470; }
+  #state.bad { color: #c62f2f; }
+  [hidden] { display: none !important; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #14171c; color: #f2f4f7; }
+    input[type=text], input[type=number] { background: #14171c; color: #f2f4f7; border-color: #7d8794; }
+    button { background: #1d2127; color: #f2f4f7; border-color: #7d8794; }
+    button:focus-visible, input:focus-visible { outline-color: #a78bfa; }
+    #state, summary { color: #a9b1bb; } #state.bad { color: #ff8a8a; }
+    li { border-bottom-color: #2d333b; }
+  }
+  ul { list-style: none; margin: 0; padding: 0; max-height: 180px; overflow: auto; }
+  li { display: flex; gap: 8px; align-items: center; padding: 4px 0; border-bottom: 1px solid #e3e6ea; }
+  li span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  summary { cursor: pointer; color: #5b6470; }
+</style>
+</head>
+<body>
+  <h1>GDM</h1>
+  <p id="state" role="status" data-i18n="Checking the app…">Checking the app…</p>
+  <p class="row" id="pairrow" hidden><button id="pair" data-i18n="Connect to GDM">Connect to GDM</button></p>
+  <label class="row"><input type="checkbox" id="enabled"> <span data-i18n="Send browser downloads to GDM">Send browser downloads to GDM</span></label>
+  <p class="row"><button id="video" data-i18n="Download video or audio from this page">Download video or audio from this page</button></p>
+  <h2 style="font-size:14px;margin:12px 0 4px" data-i18n="Media on this page">Media on this page</h2>
+  <ul id="media"><li class="empty" data-i18n="Nothing found yet. Play the video, then reopen this.">Nothing found yet. Play the video, then reopen this.</li></ul>
+  <details>
+    <summary data-i18n="Connect by hand instead">Connect by hand instead</summary>
+    <div class="row"><label for="token" data-i18n="Token">Token</label><input type="text" id="token" autocomplete="off"></div>
+    <div class="row"><label for="port" data-i18n="Port">Port</label><input type="number" id="port"></div>
+    <div class="row"><button id="save" data-i18n="Save">Save</button></div>
+  </details>
+  <script src="popup.js"></script>
+</body>
+</html>

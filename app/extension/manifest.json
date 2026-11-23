@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "GDM Capture (Genius Download Manager)",
+  "version": "0.1.0",
+  "description": "Sends browser downloads and page media to the GDM app on this computer.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0b54hfjz7MZJsipnUo2qL2vfaeodhTF8KToT6ikfGZXpFaiX9Zh0y0dgdQZ+OCoUz3B1hWXjiHCkFD+YPXpKOkzkS/N9OrlEoAyw27gZ+2pgM7eNVN1QbjumFIXB0659t1TklsBVx5yzHuiIMdvRY9ztDhapnZ7GUpWfZ2Y9rxdf1dm++M66j9+SFPc6gk5IHmTmX3n7k5L/XWavUtbAiXV9apoGkCnzRqVYAX2fZPzfaeDCpbGqRmjiAglqYVn0QnVuBXA7JBdenjeXQ2tnKZ28F2z0USA+BnAkSVWYrEtT+HG++b9aYGXhyXhniWzAsrgrRRhTDNSvfUj1aU80JQIDAQAB",
+  "permissions": [
+    "downloads",
+    "cookies",
+    "webRequest",
+    "storage",
+    "tabs",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GDM"
+  }
+}

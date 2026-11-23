@@ -1,0 +1,12 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base: './',
+  plugins: [react()],
+  build: {
+    outDir: 'dist', emptyOutDir: true,
+    rollupOptions: { input: { main: 'index.html', prompt: 'prompt.html', toast: 'toast.html', progress: 'progress.html' } },
+  },
+  test: { include: ['test/**/*.test.mjs'], environment: 'node', testTimeout: 20000 },
+})

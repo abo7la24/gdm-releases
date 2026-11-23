@@ -1,0 +1,15 @@
+{
+  "_about": "Dark palette (same roles as tokens.json). Check with: python replica/design/contrast.py replica/design/tokens-dark.json",
+  "color": {
+    "bg": "#14171c", "surface": "#1d2127", "border": "#2d333b", "border-input": "#7d8794",
+    "text": "#f2f4f7", "text-muted": "#a9b1bb", "accent": "#a78bfa", "on-accent": "#14171c",
+    "danger": "#ff8a8a", "success": "#4cc38a", "warning": "#e0a93b", "progress-track": "#2d333b"
+  },
+  "pairs": [
+    ["text", "bg"], ["text", "surface"], ["text-muted", "bg"], ["text-muted", "surface"],
+    ["on-accent", "accent"], ["on-accent", "danger"], ["accent", "bg"], ["accent", "surface"],
+    ["danger", "bg"], ["danger", "surface"], ["success", "bg"], ["success", "surface"],
+    ["warning", "bg"], ["warning", "surface"],
+    ["border-input", "bg", "ui"], ["accent", "bg", "ui"]
+  ]
+}

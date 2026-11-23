@@ -1,0 +1,16 @@
+{
+  "avoid": [],
+  "app_store": {
+    "name": "GDM: Genius Download Manager",
+    "subtitle": "Downloads you control",
+    "promotional_text": "Takes over only the downloads you choose, and leaves the rest to your browser.",
+    "description": "GDM speeds up downloads with several connections and lets you pause and resume them, even after a restart.\n\nThe browser add-on hands over the downloads you want. File types you pick, such as images, stay with the browser. If GDM cannot take a link, the browser keeps it.\n\nWhat you get:\n- Several connections per download\n- Pause and resume that survives a restart\n- A speed limit and a limit on how many run at once\n- Plain messages when something fails\n- Everything stays on your computer\n\nFree.",
+    "keywords": "resume,pause,accelerator,files,queue,speed,browser,extension,transfer,fast",
+    "whats_new": "First version."
+  },
+  "google_play": {
+    "title": "GDM: Genius Download Manager",
+    "short_description": "Faster downloads that only take what you choose. Pause, resume, stay in control.",
+    "full_description": "GDM speeds up downloads with several connections and lets you pause and resume them, even after a restart.\n\nThe browser add-on hands over the downloads you want. File types you pick, such as images, stay with the browser. If GDM cannot take a link, the browser keeps it.\n\nFree."
+  }
+}
