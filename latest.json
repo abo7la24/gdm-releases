@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "url": "GDM-Setup-0.1.0.exe",
+  "sha256": "7143045ab9651f79ad172c2348f45e1aa712ad5685e9f3c4aab6079f87de3075",
+  "notes": {
+    "en": "First version: fast downloads, video and audio from web pages, Arabic, French and English.",
+    "fr": "Première version : téléchargements rapides, vidéo et audio depuis les pages web, arabe, français et anglais.",
+    "ar": "الإصدار الأول: تنزيل سريع، وفيديو وصوت من صفحات الويب، بالعربية والفرنسية والإنجليزية."
+  }
+}
