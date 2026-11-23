@@ -66,7 +66,7 @@ Builds are not bit-for-bit reproducible, so your installer will not have the sam
 
 ## Third-party software
 
-Electron, React, lucide-react and the test tools are open source (MIT/ISC). yt-dlp (Unlicense) and ffmpeg (LGPL build) are **not included**; they are fetched on first use from their own release pages. No license has been chosen for GDM's own code yet; until one is added it can be read and run, and all other rights stay with the author.
+Electron, React, lucide-react and the test tools are open source (MIT/ISC). yt-dlp (Unlicense) and ffmpeg (LGPL build) are **not included**; they are fetched on first use from their own release pages. GDM's own code is released under the [MIT License](LICENSE): you may use, change and share it, keeping the notice.
 
 ## Found a problem?
 
@@ -83,6 +83,8 @@ Open an issue on this repository. Please do not post a working exploit; describe
 - يبحث عن التحديثات من عنوان واحد في هذا المستودع ويتحقق من بصمة SHA-256 قبل أي تثبيت.
 - يجلب أداتي الفيديو (yt-dlp) والتحويل (ffmpeg) من صفحاتهما الرسمية عند أول طلب فقط، بعد مطابقة البصمة المنشورة.
 - لا حسابات ولا تتبع ولا إعلانات ولا إرسال أي بيانات عنك.
+
+الترخيص: شيفرة GDM بترخيص MIT (ملف `LICENSE`).
 
 للتحقق من المثبّت الذي نزّلته:
 ```powershell

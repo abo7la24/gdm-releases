@@ -73,5 +73,6 @@
     "react-dom": "^18.3.1",
     "lucide-react": "^0.468.0"
   },
-  "gdmUpdateUrl": "https://raw.githubusercontent.com/abo7la24/gdm-releases/main/latest.json"
+  "gdmUpdateUrl": "https://raw.githubusercontent.com/abo7la24/gdm-releases/main/latest.json",
+  "license": "MIT"
 }
