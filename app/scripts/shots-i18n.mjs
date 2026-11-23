@@ -5,7 +5,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-const outDir = path.resolve(process.argv[2] || '../docs/screens')
+const outDir = path.resolve(process.argv[2] || '../replica/clone-screens')
 fs.mkdirSync(outDir, { recursive: true })
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 

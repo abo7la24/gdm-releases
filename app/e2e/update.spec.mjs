@@ -27,7 +27,7 @@ async function boot(settings = {}) {
   log = path.join(tmp, 'install.log')
   fs.mkdirSync(path.join(tmp, 'data'), { recursive: true })
   fs.writeFileSync(path.join(tmp, 'data', 'gdm.json'), JSON.stringify({ downloads: {}, settings: { token: 'up', download_dir: path.join(tmp, 'out'), update_url: `${base}/latest.json`, ...settings } }))
-  app = await electron.launch({ args: ['.'], env: { ...process.env, GDM_USERDATA: path.join(tmp, 'data'), GDM_TEST_INSTALL_LOG: log, GDM_NO_AUTO_UPDATE: '1' } })
+  app = await electron.launch({ args: ['.'], env: { ...process.env, GDM_USERDATA: path.join(tmp, 'data'), GDM_TEST_INSTALL_LOG: log, GDM_NO_AUTO_UPDATE: '1', GDM_NO_BUILTIN_FEED: '1' } })
   win = await app.firstWindow()
   proc = app.process()
 }

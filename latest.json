@@ -1,10 +1,10 @@
 {
-  "version": "0.1.0",
-  "url": "GDM-Setup-0.1.0.exe",
-  "sha256": "7143045ab9651f79ad172c2348f45e1aa712ad5685e9f3c4aab6079f87de3075",
+  "version": "0.1.1",
+  "url": "https://raw.githubusercontent.com/abo7la24/gdm-releases/main/GDM-Setup-0.1.1.exe",
+  "sha256": "008f1b69bf713359308d4c1c0779da48401d42d6cfa7c2ec4940823d181dfd8b",
   "notes": {
-    "en": "First version: fast downloads, video and audio from web pages, Arabic, French and English.",
-    "fr": "Première version : téléchargements rapides, vidéo et audio depuis les pages web, arabe, français et anglais.",
-    "ar": "الإصدار الأول: تنزيل سريع، وفيديو وصوت من صفحات الويب، بالعربية والفرنسية والإنجليزية."
+    "en": "Clearer, better-sized download windows; numbers read correctly in Arabic.",
+    "fr": "Fenêtres de téléchargement plus claires et mieux dimensionnées ; chiffres corrects en arabe.",
+    "ar": "نوافذ تنزيل أوضح وبمقاس مناسب، وأرقام صحيحة في العربية."
   }
 }

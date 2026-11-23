@@ -47,6 +47,7 @@ declare global {
       act(action: 'open' | 'folder' | 'retry' | 'close' | 'pause' | 'resume' | 'cancel' | 'hide'): Promise<void>
       onProgress(cb: (data: WindowInfo) => void): () => void
       hover(on: boolean): Promise<void>
+      fit(height: number): Promise<void>
       pickFolder(): Promise<string | null>
       icon(fileName: string): Promise<string | null>
       onLang(cb: (lang: string) => void): () => void

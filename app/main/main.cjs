@@ -145,7 +145,7 @@ app.whenReady().then(() => {
   // video and audio from web pages: the helper programs live in the app's data folder, not in the installer
   const tools = new Tools({ dir: process.env.GDM_TOOLS_DIR || path.join(userData, 'tools'), base: process.env.GDM_TOOLS_BASE || 'https://github.com' })
   manager.tools = tools
-  const updater = new Updater({ current: app.getVersion(), dir: path.join(userData, 'updates'), feedUrl: () => manager.settings().update_url || pkg.gdmUpdateUrl || '' })
+  const updater = new Updater({ current: app.getVersion(), dir: path.join(userData, 'updates'), feedUrl: () => manager.settings().update_url || (process.env.GDM_NO_BUILTIN_FEED ? '' : pkg.gdmUpdateUrl) || '' })
   updater.on('change', (state) => { for (const w of BrowserWindow.getAllWindows()) if (!w.isDestroyed()) w.webContents.send('update:state', state) })
   if (!process.env.GDM_NO_AUTO_UPDATE) {
     const auto = () => { if (manager.settings().app_auto_update && (manager.settings().update_url || pkg.gdmUpdateUrl)) updater.check(); maybeAutoUpdateHelper() }

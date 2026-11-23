@@ -6,7 +6,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-const outDir = path.resolve(process.argv[2] || '../docs/screens')
+const outDir = path.resolve(process.argv[2] || '../replica/clone-screens')
 fs.mkdirSync(outDir, { recursive: true })
 const SIZE = 40 * 1024 * 1024
 const server = http.createServer((req, res) => {

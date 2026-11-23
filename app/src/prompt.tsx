@@ -1,3 +1,4 @@
+import { useFit } from './fit'
 import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './tokens.css'
@@ -11,6 +12,7 @@ import { setLang, t, translateError, useLang } from './i18n'
 type Kind = 'video' | 'audio'
 
 function Prompt() {
+  useFit()
   useLang()
   const [info, setInfo] = useState<WindowInfo | null>(null)
   const [name, setName] = useState('')

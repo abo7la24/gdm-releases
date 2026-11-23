@@ -6,6 +6,7 @@ import './windows.css'
 import type { WindowInfo } from './gdm'
 import { bytes, duration, speed } from './format'
 import { FileIcon } from './fileicon'
+import { useFit } from './fit'
 import { setLang, t, translateError, useLang } from './i18n'
 
 type P = WindowInfo
@@ -24,6 +25,7 @@ function statusText(status: string | undefined): string {
 
 function Progress() {
   useLang()
+  useFit()
   const [d, setD] = useState<P | null>(null)
 
   useEffect(() => {
@@ -49,6 +51,7 @@ function Progress() {
   let host = d.url ?? ''
   try { host = new URL(d.url ?? '').host } catch { /* show the raw text */ }
   const segs = d.segments ?? []
+  const ltr = (s: string) => `⁦${s}⁩` // keep numbers and units in one piece inside Arabic text
 
   return (
     <main className="win progresswin">
@@ -56,7 +59,7 @@ function Progress() {
         <FileIcon src={d.icon} />
         <div style={{ minWidth: 0 }}>
           <h1 title={d.fileName} className="trunc" dir="auto">{d.fileName}</h1>
-          <span className={d.status === 'failed' ? 'err' : 'muted'} role="status">{statusText(d.status)}{d.error ? `: ${translateError(d.error)}` : ''}</span>
+          <span className={`state ${d.status === 'failed' ? 'err' : ''}`} role="status">{statusText(d.status)}{d.error ? `: ${translateError(d.error)}` : ''}</span>
           {d.note && <div className="muted" dir="auto">{t(d.note)}{typeof d.noteProgress === 'number' ? ` ${d.noteProgress}%` : ''}</div>}
         </div>
       </div>
@@ -68,7 +71,7 @@ function Progress() {
         </div>
         <div className="pmeta">
           <span>{size ? `${pct}%` : t('Size unknown')}</span>
-          <span>{size ? t('{done} of {total}', { done: bytes(done), total: bytes(size) }) : bytes(done)}</span>
+          <span>{size ? t('{done} of {total}', { done: ltr(bytes(done)), total: ltr(bytes(size)) }) : bytes(done)}</span>
         </div>
       </div>
 
@@ -82,10 +85,10 @@ function Progress() {
       )}
 
       <dl className="kv">
-        <dt>{t('Speed')}</dt><dd>{active ? speed(d.speed ?? 0) || '…' : '—'}</dd>
-        <dt>{t('Time left')}</dt><dd>{remaining != null ? duration(remaining) : active ? t('Working it out…') : '—'}</dd>
+        <dt>{t('Speed')}</dt><dd>{active ? ltr(speed(d.speed ?? 0)) || '…' : '—'}</dd>
+        <dt>{t('Time left')}</dt><dd>{remaining != null ? ltr(duration(remaining)) : active ? t('Working it out…') : '—'}</dd>
         <dt>{t('From')}</dt><dd dir="ltr" title={d.url}>{host}</dd>
-        <dt>{t('Saved to')}</dt><dd title={d.savePath} className="trunc" dir="ltr">{d.savePath}</dd>
+        <dt>{t('Saved to')}</dt><dd title={d.savePath} className="path" dir="ltr">{d.savePath}</dd>
         {d.kind !== 'media' && <><dt>{t('Connections')}</dt><dd>{d.connections}{d.resumable === false ? ` ${t('(this server does not allow resuming)')}` : ''}</dd></>}
       </dl>
 

@@ -4,6 +4,7 @@ contextBridge.exposeInMainWorld('gdm', {
   info: () => ipcRenderer.invoke('window:info'),
   choose: (choice, opts) => ipcRenderer.invoke('window:choose', choice, opts),
   act: (action) => ipcRenderer.invoke('window:act', action),
+  fit: (h) => ipcRenderer.invoke('window:fit', Number(h)),
   hover: (on) => ipcRenderer.invoke('window:hover', !!on),
   pickFolder: () => ipcRenderer.invoke('dialog:pickFolder'),
   onPrompt(cb) {

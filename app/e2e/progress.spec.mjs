@@ -89,7 +89,7 @@ test('P1 a download from the browser opens a progress window, not the main windo
   await expect(pw.getByRole('heading', { name: 'movie.bin' })).toBeVisible()
   await expect(pw.getByRole('status')).toContainText('Downloading')
   await expect(pw.getByText(/(KB|MB)\/s/)).toBeVisible({ timeout: 8000 })
-  await expect(pw.getByText(/^\d+ (s|min)/)).toBeVisible({ timeout: 8000 }) // time left
+  await expect(pw.getByText(/^⁦?\d+ (s|min)/)).toBeVisible({ timeout: 8000 }) // time left
   await expect(pw.getByText('127.0.0.1')).toBeVisible()
   await expect(pw.getByText(path.join(out, 'movie.bin'))).toBeVisible()
   expect(mainWindows()).toHaveLength(0) // the main window stayed away

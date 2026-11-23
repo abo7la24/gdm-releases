@@ -47,7 +47,7 @@ function openPrompt(info) {
   const result = new Promise((resolve) => { resolveResult = resolve })
   const media = info.mode === 'media' // a video page: a taller window with the choice of quality
   const w = make({
-    width: media ? 580 : 540, height: media ? 640 : 390, resizable: false, minimizable: false, maximizable: false,
+    width: media ? 600 : 560, height: media ? 560 : 360, resizable: false, minimizable: false, maximizable: false,
     alwaysOnTop: true, title: 'New download',
   }, 'prompt.html')
   const id = w.webContents.id
@@ -118,7 +118,7 @@ const progress = new Map() // download id -> { win, getData, onAction }
 function openProgress(id, getData, onAction) {
   if (progress.has(id)) return
   const offset = progress.size * 28 // later windows cascade so they do not hide each other
-  const win = make({ width: 520, height: 430, resizable: false, maximizable: false, title: 'Download progress' }, 'progress.html')
+  const win = make({ width: 560, height: 360, resizable: false, maximizable: false, title: 'Download progress' }, 'progress.html')
   progress.set(id, { win, getData, onAction })
   win.once('ready-to-show', () => {
     if (offset) { const [x, y] = win.getPosition(); win.setPosition(x + offset, y + offset) }
@@ -181,6 +181,12 @@ function registerWindowIpc() {
     if (!t || !['open', 'folder', 'retry', 'close'].includes(action)) throw new Error('not allowed')
     if (action !== 'close') t.onAction(action, t.data.id)
     t.win.close()
+  })
+  // The prompt and progress windows ask to be exactly as tall as their content (no empty gap, no scrollbar).
+  ipcMain.handle('window:fit', (e, h) => {
+    const w = BrowserWindow.fromWebContents(e.sender)
+    if (!w || w.isDestroyed() || reviews.get(e.sender.id) === undefined && !progressFor(e)) return
+    if (Number.isFinite(h)) { const [cw] = w.getContentSize(); w.setContentSize(cw, Math.min(760, Math.max(200, Math.ceil(h)))) }
   })
   // Hovering the notice keeps it on screen.
   ipcMain.handle('window:hover', (e, on) => {

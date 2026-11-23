@@ -8,12 +8,12 @@ A download manager for Windows: several connections per file, pause and resume t
 
 ## Download
 
-Latest installer: [`GDM-Setup-0.1.0.exe`](GDM-Setup-0.1.0.exe) (its published SHA-256 is in [`latest.json`](latest.json)).
+Latest installer: [`GDM-Setup-0.1.1.exe`](GDM-Setup-0.1.1.exe) (its published SHA-256 is in [`latest.json`](latest.json)).
 
 The installer is **not code-signed**, so Windows SmartScreen will say "unknown publisher". That is expected until a signing certificate is bought. Before you run it, check that your copy is the one published here (PowerShell):
 
 ```powershell
-(Get-FileHash .\GDM-Setup-0.1.0.exe -Algorithm SHA256).Hash.ToLower()
+(Get-FileHash .\GDM-Setup-0.1.1.exe -Algorithm SHA256).Hash.ToLower()
 ```
 
 The result must equal the `sha256` in `latest.json`. The program itself checks the same value before it installs any update.
@@ -88,7 +88,7 @@ Open an issue on this repository. Please do not post a working exploit; describe
 
 للتحقق من المثبّت الذي نزّلته:
 ```powershell
-(Get-FileHash .\GDM-Setup-0.1.0.exe -Algorithm SHA256).Hash.ToLower()
+(Get-FileHash .\GDM-Setup-0.1.1.exe -Algorithm SHA256).Hash.ToLower()
 ```
 يجب أن يساوي حقل `sha256` في `latest.json`.
 
